@@ -343,9 +343,8 @@ ScfbPreInit(ScrnInfoPtr pScrn, int flags)
 {
 	ScfbPtr fPtr;
 	struct fbtype fb;
-	int default_depth, wstype;
-	const char *dev;
-	const char *reqSym = NULL, *s;
+	int default_depth;
+	const char *s;
 	Gamma zeros = {0.0, 0.0, 0.0};
 	DisplayModePtr mode;
 
@@ -362,7 +361,6 @@ ScfbPreInit(ScrnInfoPtr pScrn, int flags)
 
 	fPtr->pEnt = xf86GetEntityInfo(pScrn->entityList[0]);
 
-	dev = xf86FindOptionValue(fPtr->pEnt->device->options, "device");
 	fPtr->fd = xf86Info.consoleFd;
 	if (fPtr->fd == -1) {
 		return FALSE;
@@ -963,8 +961,6 @@ static Bool
 ScfbSaveScreen(ScreenPtr pScreen, int mode)
 {
 	ScrnInfoPtr pScrn = xf86Screens[pScreen->myNum];
-	ScfbPtr fPtr = SCFBPTR(pScrn);
-	int state;
 
 	TRACE_ENTER("SaveScreen");
 
@@ -978,23 +974,17 @@ ScfbSaveScreen(ScreenPtr pScreen, int mode)
 	return TRUE;
 }
 
-
 static void
 ScfbSave(ScrnInfoPtr pScrn)
 {
-	ScfbPtr fPtr = SCFBPTR(pScrn);
-
 	TRACE_ENTER("ScfbSave");
-
 	TRACE_EXIT("ScfbSave");
-
 }
 
 static void
 ScfbRestore(ScrnInfoPtr pScrn)
 {
 	ScfbPtr fPtr = SCFBPTR(pScrn);
-	int mode;
 
 	TRACE_ENTER("ScfbRestore");
 
