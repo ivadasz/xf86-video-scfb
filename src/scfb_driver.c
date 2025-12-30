@@ -781,9 +781,10 @@ ScfbScreenInit(ScreenPtr pScreen, int argc, char **argv)
 		    "disabling DGA\n");
 #endif
 	if (fPtr->rotate) {
-		xf86DrvMsg(pScrn->scrnIndex, X_INFO, "Enabling Driver Rotation, "
-		    "disabling RandR\n");
-		xf86DisableRandR();
+		xf86DrvMsg(
+			pScrn->scrnIndex,
+			X_INFO,
+			"Enabling Driver Rotation, cant disable RandR anymore - maybe untable\n");
 		if (pScrn->bitsPerPixel == 24)
 			xf86DrvMsg(pScrn->scrnIndex, X_WARNING,
 			    "Rotation might be broken in 24 bpp\n");
