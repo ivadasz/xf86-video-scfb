@@ -28,11 +28,6 @@
 #ifndef COMPAT_API_H
 #define COMPAT_API_H
 
-#ifndef GLYPH_HAS_GLYPH_PICTURE_ACCESSOR
-#define GetGlyphPicture(g, s) GlyphPicture((g))[(s)->myNum]
-#define SetGlyphPicture(g, s, p) GlyphPicture((g))[(s)->myNum] = p
-#endif
-
 #ifndef XF86_HAS_SCRN_CONV
 #define xf86ScreenToScrn(s) xf86Screens[(s)->myNum]
 #define xf86ScrnToScreen(s) screenInfo.screens[(s)->scrnIndex]
