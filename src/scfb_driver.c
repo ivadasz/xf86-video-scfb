@@ -95,11 +95,11 @@ static Bool ScfbScreenInit(SCREEN_INIT_ARGS_DECL);
 static Bool ScfbCloseScreen(CLOSE_SCREEN_ARGS_DECL);
 static void *ScfbWindowLinear(ScreenPtr, CARD32, CARD32, int, CARD32 *,
 			      void *);
-static void ScfbPointerMoved(SCRN_ARG_TYPE, int, int);
+static void ScfbPointerMoved(ScrnInfoPtr, int, int);
 static Bool ScfbEnterVT(VT_FUNC_ARGS_DECL);
 static void ScfbLeaveVT(VT_FUNC_ARGS_DECL);
 static Bool ScfbSwitchMode(SWITCH_MODE_ARGS_DECL);
-static int ScfbValidMode(SCRN_ARG_TYPE, DisplayModePtr, Bool, int);
+static int ScfbValidMode(ScrnInfoPtr, DisplayModePtr, Bool, int);
 static void ScfbLoadPalette(ScrnInfoPtr, int, int *, LOCO *, VisualPtr);
 static Bool ScfbSaveScreen(ScreenPtr, int);
 static void ScfbSave(ScrnInfoPtr);
@@ -210,7 +210,7 @@ typedef struct {
 	void *			shadow;
 	CloseScreenProcPtr	CloseScreen;
 	CreateScreenResourcesProcPtr CreateScreenResources;
-	void			(*PointerMoved)(SCRN_ARG_TYPE, int, int);
+	void			(*PointerMoved)(ScrnInfoPtr, int, int);
 	EntityInfoPtr		pEnt;
 
 #ifdef XFreeXDGA
@@ -886,7 +886,7 @@ ScfbWindowLinear(ScreenPtr pScreen, CARD32 row, CARD32 offset, int mode,
 }
 
 static void
-ScfbPointerMoved(SCRN_ARG_TYPE arg, int x, int y)
+ScfbPointerMoved(ScrnInfoPtr arg, int x, int y)
 {
     SCRN_INFO_PTR(arg);
     ScfbPtr fPtr = SCFBPTR(pScrn);
@@ -957,7 +957,7 @@ ScfbSwitchMode(SWITCH_MODE_ARGS_DECL)
 }
 
 static int
-ScfbValidMode(SCRN_ARG_TYPE arg, DisplayModePtr mode, Bool verbose, int flags)
+ScfbValidMode(ScrnInfoPtr arg, DisplayModePtr mode, Bool verbose, int flags)
 {
 #if DEBUG
 	SCRN_INFO_PTR(arg);
