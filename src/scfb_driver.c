@@ -98,7 +98,7 @@ static void *ScfbWindowLinear(ScreenPtr, CARD32, CARD32, int, CARD32 *,
 static void ScfbPointerMoved(ScrnInfoPtr, int, int);
 static Bool ScfbEnterVT(ScrnInfoPtr arg);
 static void ScfbLeaveVT(ScrnInfoPtr arg);
-static Bool ScfbSwitchMode(SWITCH_MODE_ARGS_DECL);
+static Bool ScfbSwitchMode(ScrnInfoPtr arg, DisplayModePtr mode);
 static int ScfbValidMode(ScrnInfoPtr, DisplayModePtr, Bool, int);
 static void ScfbLoadPalette(ScrnInfoPtr, int, int *, LOCO *, VisualPtr);
 static Bool ScfbSaveScreen(ScreenPtr, int);
@@ -945,7 +945,7 @@ ScfbLeaveVT(ScrnInfoPtr arg)
 }
 
 static Bool
-ScfbSwitchMode(SWITCH_MODE_ARGS_DECL)
+ScfbSwitchMode(ScrnInfoPtr arg, DisplayModePtr mode)
 {
 #if DEBUG
 	SCRN_INFO_PTR(arg);
