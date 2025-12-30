@@ -40,6 +40,4 @@
 #define SWITCH_MODE_ARGS_DECL ScrnInfoPtr arg, DisplayModePtr mode
 #define SWITCH_MODE_ARGS(arg, m) arg, m
 
-#define VT_FUNC_ARGS_DECL ScrnInfoPtr arg
-
 #endif
