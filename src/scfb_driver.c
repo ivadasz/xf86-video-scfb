@@ -68,8 +68,6 @@
 #include "xf86xv.h"
 #endif
 
-#include "compat-api.h"
-
 #undef	DEBUG
 #define	DEBUG	1
 
