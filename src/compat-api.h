@@ -32,9 +32,6 @@
 
 #define SCREEN_INIT_ARGS_DECL ScreenPtr pScreen, int argc, char **argv
 
-#define CLOSE_SCREEN_ARGS_DECL ScreenPtr pScreen
-#define CLOSE_SCREEN_ARGS pScreen
-
 #define SWITCH_MODE_ARGS_DECL ScrnInfoPtr arg, DisplayModePtr mode
 #define SWITCH_MODE_ARGS(arg, m) arg, m
 

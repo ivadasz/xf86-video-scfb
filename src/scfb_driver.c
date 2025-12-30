@@ -92,7 +92,7 @@ static void ScfbIdentify(int);
 static Bool ScfbProbe(DriverPtr, int);
 static Bool ScfbPreInit(ScrnInfoPtr, int);
 static Bool ScfbScreenInit(SCREEN_INIT_ARGS_DECL);
-static Bool ScfbCloseScreen(CLOSE_SCREEN_ARGS_DECL);
+static Bool ScfbCloseScreen(ScreenPtr pScreen);
 static void *ScfbWindowLinear(ScreenPtr, CARD32, CARD32, int, CARD32 *,
 			      void *);
 static void ScfbPointerMoved(ScrnInfoPtr, int, int);
@@ -837,7 +837,7 @@ ScfbScreenInit(SCREEN_INIT_ARGS_DECL)
 }
 
 static Bool
-ScfbCloseScreen(CLOSE_SCREEN_ARGS_DECL)
+ScfbCloseScreen(ScreenPtr pScreen)
 {
 	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	PixmapPtr pPixmap;
@@ -871,7 +871,7 @@ ScfbCloseScreen(CLOSE_SCREEN_ARGS_DECL)
 	/* Unwrap CloseScreen. */
 	pScreen->CloseScreen = fPtr->CloseScreen;
 	TRACE_EXIT("ScfbCloseScreen");
-	return (*pScreen->CloseScreen)(CLOSE_SCREEN_ARGS);
+	return pScreen->CloseScreen(pScreen);
 }
 
 static void *
