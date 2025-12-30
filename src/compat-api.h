@@ -30,6 +30,4 @@
 
 #define SCRN_INFO_PTR(arg1) ScrnInfoPtr pScrn = (arg1)
 
-#define SCREEN_INIT_ARGS_DECL ScreenPtr pScreen, int argc, char **argv
-
 #endif

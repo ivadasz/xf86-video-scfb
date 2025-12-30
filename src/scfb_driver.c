@@ -91,7 +91,7 @@ static const OptionInfoRec * ScfbAvailableOptions(int, int);
 static void ScfbIdentify(int);
 static Bool ScfbProbe(DriverPtr, int);
 static Bool ScfbPreInit(ScrnInfoPtr, int);
-static Bool ScfbScreenInit(SCREEN_INIT_ARGS_DECL);
+static Bool ScfbScreenInit(ScreenPtr pScreen, int argc, char **argv);
 static Bool ScfbCloseScreen(ScreenPtr pScreen);
 static void *ScfbWindowLinear(ScreenPtr, CARD32, CARD32, int, CARD32 *,
 			      void *);
@@ -629,7 +629,7 @@ ScfbShadowInit(ScreenPtr pScreen)
 }
 
 static Bool
-ScfbScreenInit(SCREEN_INIT_ARGS_DECL)
+ScfbScreenInit(ScreenPtr pScreen, int argc, char **argv)
 {
 	ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
 	ScfbPtr fPtr = SCFBPTR(pScrn);
