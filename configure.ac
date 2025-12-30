@@ -22,10 +22,10 @@
 
 # Initialize Autoconf
 AC_PREREQ([2.60])
-AC_INIT([xf86-video-scfb],
+AC_INIT([xlibre-xf86-video-scfb],
         [0.0.5],
-        [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
-        [xf86-video-scfb])
+        [https://github.com/X11Libre/xf86-video-scfb/issues],
+        [xlibre-xf86-video-scfb])
 AC_CONFIG_SRCDIR([Makefile.am])
 AC_CONFIG_HEADERS([config.h])
 
